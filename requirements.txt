@@ -2,3 +2,5 @@ crewai
 streamlit
 langchain-groq
 langchain-google-genai
+pandas>=2.2.0
+setuptools
