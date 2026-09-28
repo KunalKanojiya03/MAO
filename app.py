@@ -9,7 +9,7 @@ st.title("🤖 Multi-Agent Council Dashboard")
 os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
 
 # Manager uses the heavy reasoning model
-manager_llm = LLM(model="gemini/gemini-3.1-pro-preview")
+manager_llm = LLM(model="gemini/gemini-3.5-flash")
 
 # Workers use the fast, free execution model
 worker_llm = LLM(model="gemini/gemini-3.5-flash")
