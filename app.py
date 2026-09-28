@@ -1,18 +1,18 @@
 import streamlit as st
 from crewai import Agent, Task, Crew, Process, LLM
 import os
-from langchain_groq import ChatGroq
 
 st.set_page_config(page_title="My AI Council", layout="wide")
 st.title("🤖 Multi-Agent Council Dashboard")
 
 # Securely load API keys from Streamlit Cloud Secrets
 os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
-os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 
-# Initialize the specific models
-manager_llm = LLM(model="gemini/gemini-3.1-flash-lite")
-worker_llm = ChatGroq(api_key=os.environ["GROQ_API_KEY"], model="llama-3.1-8b-instant")
+# Manager uses the heavy reasoning model
+manager_llm = LLM(model="gemini/gemini-3.1-pro-preview")
+
+# Workers use the fast, free execution model
+worker_llm = LLM(model="gemini/gemini-3.5-flash")
 
 project_plan = st.text_area("Enter your project brief:", height=150)
 
