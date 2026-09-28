@@ -10,7 +10,7 @@ os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
 os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 
 # Initialize the specific models
-manager_llm = LLM(model="gemini/gemini-1.5-pro")
+manager_llm = LLM(model="gemini/gemini-3.1-flash-lite")
 worker_llm = LLM(model="groq/llama-3.1-8b-instant")
 
 project_plan = st.text_area("Enter your project brief:", height=150)
